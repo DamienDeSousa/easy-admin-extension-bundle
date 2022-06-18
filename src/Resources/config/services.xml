@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services
+        http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <!--    CONTROLLERS    -->
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Index" public="true">
+            <argument type="service" id="translator"/>
+            <argument type="service" id="dades_cms.service_site_site_reader"/>
+            <argument>%dades_cms.icon_directory%</argument>
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <tag name="controller.service_arguments"/>
+            <tag name="ea.dashboard_controller"/>
+            <tag name="container.service_subscriber"/>
+        </service>
+
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Site\SiteCRUDController" public="true">
+            <argument>%dades_cms.icon_directory%</argument>
+            <call method="setContainer">
+                <argument type="service" id="Psr\Container\ContainerInterface"/>
+            </call>
+            <tag name="controller.service_arguments"/>
+            <tag name="container.service_subscriber"/>
+            <tag name="ea.crud_controller"/>
+        </service>
+
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\BlockType\BlockTypeCRUDController" public="true">
+            <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
+            <argument type="service" id="translator"/>
+            <call method="setContainer">
+                <argument type="service" id="Psr\Container\ContainerInterface"/>
+            </call>
+            <tag name="controller.service_arguments"/>
+            <tag name="container.service_subscriber"/>
+            <tag name="ea.crud_controller"/>
+        </service>
+
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\PageTemplate\PageTemplateCRUDController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="Psr\Container\ContainerInterface"/>
+            </call>
+            <tag name="controller.service_arguments"/>
+            <tag name="container.service_subscriber"/>
+            <tag name="ea.crud_controller"/>
+        </service>
+
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\PageTemplateBlockType\PageTemplateBlockTypeCRUDController" public="true">
+            <call method="setContainer">
+                <argument type="service" id="Psr\Container\ContainerInterface"/>
+            </call>
+            <tag name="controller.service_arguments"/>
+            <tag name="container.service_subscriber"/>
+            <tag name="ea.crud_controller"/>
+        </service>
+    </services>
+</container>
