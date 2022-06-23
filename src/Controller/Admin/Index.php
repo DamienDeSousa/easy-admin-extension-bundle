@@ -14,6 +14,7 @@ namespace Dades\EasyAdminExtensionBundle\Controller\Admin;
 use Dades\CmsBundle\Entity\BlockType;
 use Dades\CmsBundle\Entity\PageTemplateBlockType;
 use Dades\CmsBundle\Entity\PageTemplate;
+use Dades\CmsBundle\Entity\SEOBlock;
 use Dades\CmsBundle\Entity\Site;
 use Dades\CmsBundle\Service\Site\SiteReaderInterface;
 use App\Security\Admin\Voter\HomePageVoter;
@@ -70,15 +71,8 @@ class Index extends AbstractDashboardController
         ];
 
         $menuItems[] = MenuItem::section('admin.sections.cms');
-        if ($this->isGranted('ROLE_SUPER_ADMIN')) {
-            $menuItems[] = MenuItem::linkToCrud('admin.sections.page_template', 'fa fa-th-large', PageTemplate::class);
-            $menuItems[] = MenuItem::linkToCrud('admin.sections.block_type', 'fa fa-square', BlockType::class);
-            $menuItems[] = MenuItem::linkToCrud(
-                'admin.sections.page_template_block_type',
-                'fa fa-link',
-                PageTemplateBlockType::class
-            );
-        }
+        $menuItems[] = MenuItem::linkToCrud('admin.sections.seo-block', 'fa fa-square', SEOBlock::class);
+
 
         return $menuItems;
     }

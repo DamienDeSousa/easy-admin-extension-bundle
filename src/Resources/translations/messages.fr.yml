@@ -1,0 +1,18 @@
+cms.name: Symfony CMS
+
+admin:
+    sections:
+        dashboard: Accueil
+        general_parameter: Paramètres Généraux
+        site: Site
+        cms: CMS
+        seo-block: SEO Block
+block:
+    name: Nom du block
+seo-block:
+    title: Titre
+    description: Description
+    meta-robots: Meta Robots
+    meta-viewport: Meta Viewport
+    canonical: Source
+    template: Patron

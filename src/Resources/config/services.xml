@@ -27,27 +27,8 @@
             <tag name="ea.crud_controller"/>
         </service>
 
-        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\BlockType\BlockTypeCRUDController" public="true">
-            <argument type="service" id="EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator"/>
-            <argument type="service" id="translator"/>
-            <call method="setContainer">
-                <argument type="service" id="Psr\Container\ContainerInterface"/>
-            </call>
-            <tag name="controller.service_arguments"/>
-            <tag name="container.service_subscriber"/>
-            <tag name="ea.crud_controller"/>
-        </service>
-
-        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\PageTemplate\PageTemplateCRUDController" public="true">
-            <call method="setContainer">
-                <argument type="service" id="Psr\Container\ContainerInterface"/>
-            </call>
-            <tag name="controller.service_arguments"/>
-            <tag name="container.service_subscriber"/>
-            <tag name="ea.crud_controller"/>
-        </service>
-
-        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\PageTemplateBlockType\PageTemplateBlockTypeCRUDController" public="true">
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Block\SEOBlockCRUDController" public="true">
+            <argument type="service" id="file_locator"/>
             <call method="setContainer">
                 <argument type="service" id="Psr\Container\ContainerInterface"/>
             </call>
