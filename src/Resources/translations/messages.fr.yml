@@ -7,6 +7,7 @@ admin:
         site: Site
         cms: CMS
         seo-block: SEO Block
+        block: Block
 block:
     name: Nom du block
 seo-block:

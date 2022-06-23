@@ -71,7 +71,9 @@ class Index extends AbstractDashboardController
         ];
 
         $menuItems[] = MenuItem::section('admin.sections.cms');
-        $menuItems[] = MenuItem::linkToCrud('admin.sections.seo-block', 'fa fa-square', SEOBlock::class);
+        $menuItems[] = MenuItem::subMenu('admin.sections.block', 'fa fa-square')->setSubItems([
+            MenuItem::linkToCrud('admin.sections.seo-block', 'fa fa-line-chart', SEOBlock::class),
+        ]);
 
 
         return $menuItems;
