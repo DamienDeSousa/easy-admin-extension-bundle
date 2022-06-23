@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:2.0" version="2.0" srcLang="en-US" trgLang="fr-FR">
+    <file id="messages.fr">
+        <unit id="cms.name">
+            <segment>
+                <source>cms.name</source>
+                <target>Symfony CMS</target>
+            </segment>
+        </unit>
+
+        <unit id="admin.sections.dashboard">
+            <segment>
+                <source>admin.sections.dashboard</source>
+                <target>Accueil</target>
+            </segment>
+        </unit>
+        <unit id="admin.sections.general_parameter">
+            <segment>
+                <source>admin.sections.general_parameter</source>
+                <target>Paramètres Généraux</target>
+            </segment>
+        </unit>
+        <unit id="admin.sections.site">
+            <segment>
+                <source>admin.sections.site</source>
+                <target>Site</target>
+            </segment>
+        </unit>
+        <unit id="admin.sections.cms">
+            <segment>
+                <source>admin.sections.cms</source>
+                <target>CMS</target>
+            </segment>
+        </unit>
+        <unit id="admin.sections.seo-block">
+            <segment>
+                <source>admin.sections.seo-block</source>
+                <target>SEO Block</target>
+            </segment>
+        </unit>
+        <unit id="admin.sections.block">
+            <segment>
+                <source>admin.sections.block</source>
+                <target>Block</target>
+            </segment>
+        </unit>
+
+        <unit id="block.name">
+            <segment>
+                <source>block.name</source>
+                <target>Nom du block</target>
+            </segment>
+        </unit>
+
+        <unit id="seo-block.title">
+            <segment>
+                <source>seo-block.title</source>
+                <target>Titre</target>
+            </segment>
+        </unit>
+        <unit id="seo-block.description">
+            <segment>
+                <source>seo-block.description</source>
+                <target>Description</target>
+            </segment>
+        </unit>
+        <unit id="seo-block.meta-robots">
+            <segment>
+                <source>seo-block.meta-robots</source>
+                <target>Meta Robots</target>
+            </segment>
+        </unit>
+        <unit id="seo-block.meta-viewport">
+            <segment>
+                <source>seo-block.meta-viewport</source>
+                <target>Meta Viewport</target>
+            </segment>
+        </unit>
+        <unit id="seo-block.canonical">
+            <segment>
+                <source>seo-block.canonical</source>
+                <target>Source</target>
+            </segment>
+        </unit>
+        <unit id="seo-block.template">
+            <segment>
+                <source>seo-block.template</source>
+                <target>Patron</target>
+            </segment>
+        </unit>
+    </file>
+</xliff>
