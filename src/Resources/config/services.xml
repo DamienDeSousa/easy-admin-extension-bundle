@@ -36,5 +36,25 @@
             <tag name="container.service_subscriber"/>
             <tag name="ea.crud_controller"/>
         </service>
+
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Page\PageCRUDController" public="true">
+            <argument type="service" id="file_locator"/>
+            <call method="setContainer">
+                <argument type="service" id="Psr\Container\ContainerInterface"/>
+            </call>
+            <tag name="controller.service_arguments"/>
+            <tag name="container.service_subscriber"/>
+            <tag name="ea.crud_controller"/>
+        </service>
+
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Block\RichTextBlockCRUDController" public="true">
+            <argument type="service" id="file_locator"/>
+            <call method="setContainer">
+                <argument type="service" id="Psr\Container\ContainerInterface"/>
+            </call>
+            <tag name="controller.service_arguments"/>
+            <tag name="container.service_subscriber"/>
+            <tag name="ea.crud_controller"/>
+        </service>
     </services>
 </container>

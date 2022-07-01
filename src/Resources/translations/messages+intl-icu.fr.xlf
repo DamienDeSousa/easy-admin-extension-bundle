@@ -35,13 +35,13 @@
         <unit id="admin.sections.seo-block">
             <segment>
                 <source>admin.sections.seo-block</source>
-                <target>SEO Block</target>
+                <target>Blocks SEO</target>
             </segment>
         </unit>
         <unit id="admin.sections.block">
             <segment>
                 <source>admin.sections.block</source>
-                <target>Block</target>
+                <target>Blocks</target>
             </segment>
         </unit>
 
@@ -49,6 +49,12 @@
             <segment>
                 <source>block.name</source>
                 <target>Nom du block</target>
+            </segment>
+        </unit>
+        <unit id="block.type">
+            <segment>
+                <source>block.type</source>
+                <target>Type du block</target>
             </segment>
         </unit>
 
@@ -86,6 +92,54 @@
             <segment>
                 <source>seo-block.template</source>
                 <target>Patron</target>
+            </segment>
+        </unit>
+        <unit id="site.show.title">
+            <segment>
+                <source>site.show.title</source>
+                <target>Titre</target>
+            </segment>
+        </unit>
+        <unit id="site.show.icon">
+            <segment>
+                <source>site.show.icon</source>
+                <target>Icône</target>
+            </segment>
+        </unit>
+        <unit id="admin.sections.page">
+            <segment>
+                <source>admin.sections.page</source>
+                <target>Pages</target>
+            </segment>
+        </unit>
+        <unit id="page.template">
+            <segment>
+                <source>page.template</source>
+                <target>Patron</target>
+            </segment>
+        </unit>
+        <unit id="page.seo-block">
+            <segment>
+                <source>page.seo-block</source>
+                <target>Block SEO</target>
+            </segment>
+        </unit>
+        <unit id="page.route-name">
+            <segment>
+                <source>page.route-name</source>
+                <target>Nom de la route</target>
+            </segment>
+        </unit>
+        <unit id="page.url">
+            <segment>
+                <source>page.url</source>
+                <target>Url</target>
+            </segment>
+        </unit>
+        <unit id="page.blocks">
+            <segment>
+                <source>page.blocks</source>
+                <target>Blocks</target>
             </segment>
         </unit>
     </file>

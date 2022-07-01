@@ -11,13 +11,13 @@ declare(strict_types=1);
 
 namespace Dades\EasyAdminExtensionBundle\Controller\Admin;
 
-use Dades\CmsBundle\Entity\BlockType;
-use Dades\CmsBundle\Entity\PageTemplateBlockType;
-use Dades\CmsBundle\Entity\PageTemplate;
-use Dades\CmsBundle\Entity\SEOBlock;
+use App\Controller\TestBlockCRUDController;
+use Dades\CmsBundle\Entity\Block;
+use Dades\CmsBundle\Entity\Page;
 use Dades\CmsBundle\Entity\Site;
 use Dades\CmsBundle\Service\Site\SiteReaderInterface;
-use App\Security\Admin\Voter\HomePageVoter;
+use Dades\EasyAdminExtensionBundle\Controller\Admin\Block\RichTextBlockCRUDController;
+use Dades\EasyAdminExtensionBundle\Controller\Admin\Block\SEOBlockCRUDController;
 use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -72,8 +72,12 @@ class Index extends AbstractDashboardController
 
         $menuItems[] = MenuItem::section('admin.sections.cms');
         $menuItems[] = MenuItem::subMenu('admin.sections.block', 'fa fa-square')->setSubItems([
-            MenuItem::linkToCrud('admin.sections.seo-block', 'fa fa-line-chart', SEOBlock::class),
+            MenuItem::linkToCrud('admin.sections.seo-block', 'fa fa-line-chart', Block::class)
+                ->setController(SEOBlockCRUDController::class),
+            MenuItem::linkToCrud('admin.sections.rich-text-block', 'fa fa-line-chart', Block::class)
+                ->setController(RichTextBlockCRUDController::class),
         ]);
+        $menuItems[] = MenuItem::linkToCrud('admin.sections.page', 'fa fa-columns', Page::class);
 
 
         return $menuItems;

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Defines the SEOBlockCRUDController class.
+ * Defines the RichTextBlockCRUDController class.
  *
  * @author Damien DE SOUSA
  */
@@ -22,20 +22,20 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Dto\SearchDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use JetBrains\PhpStorm\Pure;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpKernel\Config\FileLocator;
 use Symfony\Component\Validator\Constraints\Choice;
-use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
- * Provides CRUD actions for SEO blocks.
+ * Provides CRUD actions for Rich text block.
  */
-class SEOBlockCRUDController extends AbstractCrudController
+class RichTextBlockCRUDController extends AbstractCrudController
 {
-    public const BLOCK_TYPE = 'seo_block';
+    public const BLOCK_TYPE = 'rich_text_block';
 
     private Finder $finder;
 
@@ -69,52 +69,17 @@ class SEOBlockCRUDController extends AbstractCrudController
             ->setPermission(Action::SAVE_AND_RETURN, 'ROLE_ADMIN');
     }
 
-    /**
-     * @inheritdoc
-     */
     public function configureFields(string $pageName): iterable
     {
         $availableTemplates = $this->getAvailableTemplate();
-        $metaRobotsValues = $this->getMetaRobotsValues();
-
         return [
             TextField::new('name', 'block.name')
                 ->setRequired(true)
                 ->setMaxLength(255)
                 ->setFormTypeOption('constraints', [new NotBlank()]),
-            TextField::new('title', 'seo-block.title')
-                ->setMaxLength(60)
+            TextEditorField::new('richText')
                 ->setRequired(true)
                 ->setFormTypeOption('constraints', [new NotBlank()]),
-            TextField::new('description', 'seo-block.description')
-                ->setMaxLength(141)
-                ->setRequired(true)
-                ->setFormTypeOption('constraints', [new NotBlank()]),
-            ChoiceField::new('metaRobots', 'seo-block.meta-robots')
-                ->allowMultipleChoices()
-                ->setChoices(array_combine($metaRobotsValues, $metaRobotsValues))
-                ->setRequired(true)
-                ->setFormTypeOption(
-                    'constraints',
-                    [
-                        new NotBlank(),
-                        new Choice(['choices' => $metaRobotsValues, 'multiple' => true])
-                    ]
-                ),
-            TextField::new('metaViewport', 'seo-block.meta-viewport')
-                ->setMaxLength(255)
-                ->hideOnIndex()
-                ->setRequired(true)
-                ->setFormTypeOption('constraints', [new NotBlank()]),
-            TextField::new('canonical', 'seo-block.canonical')
-                ->hideOnIndex()
-                ->setMaxLength(255)
-                ->setFormTypeOption(
-                    'constraints',
-                    [
-                        new Length(['max' => 255])
-                    ]
-                ),
             ChoiceField::new('template', 'seo-block.template')
                 ->setChoices(array_combine($availableTemplates, $availableTemplates))
                 ->setRequired(true)
@@ -126,22 +91,6 @@ class SEOBlockCRUDController extends AbstractCrudController
                         new TwigTemplateExists(),
                     ]
                 ),
-        ];
-    }
-
-    public function getMetaRobotsValues(): array
-    {
-        return [
-            'index',
-            'noindex',
-            'none',
-            'noimageindex',
-            'follow',
-            'nofollow',
-            'noarchive/nocache',
-            'nosnippet',
-            'notranslate',
-            'unavailable_after',
         ];
     }
 
