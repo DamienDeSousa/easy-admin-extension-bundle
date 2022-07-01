@@ -5,6 +5,13 @@
         http://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
         <!--    CONTROLLERS    -->
+        <service id="dades_ea_extension.abstract_block_controller"
+                 class="Dades\EasyAdminExtensionBundle\Controller\Admin\Block\AbstractBlockCRUDController"
+                 abstract="true"
+        >
+            <argument type="service" id="file_locator"/>
+        </service>
+
         <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Index" public="true">
             <argument type="service" id="translator"/>
             <argument type="service" id="dades_cms.service_site_site_reader"/>
@@ -27,14 +34,16 @@
             <tag name="ea.crud_controller"/>
         </service>
 
-        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Block\SEOBlockCRUDController" public="true">
-            <argument type="service" id="file_locator"/>
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Block\SEOBlockCRUDController"
+                 parent="dades_ea_extension.abstract_block_controller"
+                 public="true"
+        >
+            <tag name="controller.service_arguments"/>
+            <tag name="ea.crud_controller"/>
             <call method="setContainer">
                 <argument type="service" id="Psr\Container\ContainerInterface"/>
             </call>
-            <tag name="controller.service_arguments"/>
             <tag name="container.service_subscriber"/>
-            <tag name="ea.crud_controller"/>
         </service>
 
         <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Page\PageCRUDController" public="true">
@@ -47,14 +56,16 @@
             <tag name="ea.crud_controller"/>
         </service>
 
-        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Block\RichTextBlockCRUDController" public="true">
-            <argument type="service" id="file_locator"/>
+        <service id="Dades\EasyAdminExtensionBundle\Controller\Admin\Block\RichTextBlockCRUDController"
+                 parent="dades_ea_extension.abstract_block_controller"
+                 public="true"
+        >
+            <tag name="controller.service_arguments"/>
+            <tag name="ea.crud_controller"/>
             <call method="setContainer">
                 <argument type="service" id="Psr\Container\ContainerInterface"/>
             </call>
-            <tag name="controller.service_arguments"/>
             <tag name="container.service_subscriber"/>
-            <tag name="ea.crud_controller"/>
         </service>
     </services>
 </container>
