@@ -18,11 +18,13 @@ use Dades\CmsBundle\Entity\Site;
 use Dades\CmsBundle\Service\Site\SiteReaderInterface;
 use Dades\EasyAdminExtensionBundle\Controller\Admin\Block\RichTextBlockCRUDController;
 use Dades\EasyAdminExtensionBundle\Controller\Admin\Block\SEOBlockCRUDController;
+use Dades\EasyAdminExtensionBundle\Controller\Admin\Site\SiteCRUDController;
 use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 
 /**
  * This class display the index admin page.
@@ -37,12 +39,13 @@ class Index extends AbstractDashboardController
         private TranslatorInterface $translator,
         private SiteReaderInterface $siteReaderService,
         private string $iconDirectory,
+        private AdminUrlGenerator $adminUrlGenerator,
     ) {
     }
 
     public function index(): Response
     {
-        return parent::index();
+        return $this->redirect($this->adminUrlGenerator->setController(SiteCRUDController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
