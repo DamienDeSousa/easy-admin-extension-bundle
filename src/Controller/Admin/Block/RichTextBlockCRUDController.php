@@ -49,7 +49,7 @@ class RichTextBlockCRUDController extends AbstractBlockCRUDController
         return array_merge(
             $parentFields,
             [
-                TextEditorField::new('richText')
+                TextEditorField::new('richText', 'rich-text-block.rich-text')
                     ->setRequired(true)
                     ->setFormTypeOption('constraints', [new NotBlank()]),
             ]

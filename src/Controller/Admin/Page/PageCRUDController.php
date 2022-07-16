@@ -170,7 +170,7 @@ class PageCRUDController extends AbstractCrudController
         return $choices;
     }
 
-    public function edit(AdminContext $context)
+    public function edit(AdminContext $context): KeyValueStore|Response
     {
         $event = new BeforeCrudActionEvent($context);
         $this->container->get('event_dispatcher')->dispatch($event);
@@ -192,8 +192,8 @@ class PageCRUDController extends AbstractCrudController
         }
 
         // START rewrite
-        /** @var Page $page */
         $fields = $this->configureFields(Crud::PAGE_EDIT);
+        /** @var Page $page */
         $page = $context->getEntity()->getInstance();
         $fields[] = AssociationField::new('seoBlock', 'page.seo-block')
             ->setRequired(true)

@@ -8,6 +8,11 @@
             "Dades\\EasyAdminExtensionBundle\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Dades\\EasyAdminExtensionBundle\\Tests\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Damien DE SOUSA",
@@ -17,6 +22,26 @@
     "require": {
         "php": "^8.1.7",
         "symfony/framework-bundle": "^5.4.9",
-        "easycorp/easyadmin-bundle": "^4.0"
+        "easycorp/easyadmin-bundle": "^4.0",
+        "symfony/translation": "^5.4",
+        "symfony/validator": "^5.4",
+        "symfony/routing": "^5.4",
+        "symfony/http-kernel": "^5.4",
+        "dades/cms-bundle": "1.x-dev",
+        "symfony/security-guard": "^5.4",
+        "symfony/security-bundle": "^5.4",
+        "symfony/mime": "^5.4"
+    },
+    "require-dev": {
+        "dades/test-fixtures": "*@dev",
+        "dades/test-utils": "*@dev",
+        "doctrine/doctrine-fixtures-bundle": "^3.4.2",
+        "symfony/browser-kit": "^5.4.3",
+        "symfony/phpunit-bridge": "^6.1.2",
+        "symfony/console": "^5.4",
+        "symfony/twig-bundle": "^5.4",
+        "symfony/css-selector": "^5.4",
+        "phpunit/phpunit": "^9.5",
+        "symfony/panther": "^2.0"
     }
 }

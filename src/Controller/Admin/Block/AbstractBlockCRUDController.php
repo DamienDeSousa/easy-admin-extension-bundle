@@ -68,7 +68,7 @@ abstract class AbstractBlockCRUDController extends AbstractCrudController
                 ->setRequired(true)
                 ->setMaxLength(255)
                 ->setFormTypeOption('constraints', [new NotBlank()]),
-            ChoiceField::new('template', 'seo-block.template')
+            ChoiceField::new('template', 'block.template')
                 ->setChoices(array_combine($availableTemplates, $availableTemplates))
                 ->setRequired(true)
                 ->setFormTypeOption(

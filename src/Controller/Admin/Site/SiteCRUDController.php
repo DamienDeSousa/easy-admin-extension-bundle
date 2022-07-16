@@ -71,7 +71,9 @@ class SiteCRUDController extends AbstractCrudController
         // ];
 
         return [
-            TextField::new('title', 'site.show.title'),
+            TextField::new('title', 'site.show.title')
+                ->setRequired(true)
+                ->setFormTypeOption('constraints', [new NotBlank()]),
             ImageField::new('icon', 'site.show.icon')
                 ->setBasePath($this->iconDirectory)
                 ->setUploadDir(sprintf('public/%s', $this->iconDirectory))

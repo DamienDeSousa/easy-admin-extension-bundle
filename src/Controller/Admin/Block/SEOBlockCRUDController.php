@@ -57,11 +57,11 @@ class SEOBlockCRUDController extends AbstractBlockCRUDController
                 TextField::new('title', 'seo-block.title')
                     ->setMaxLength(60)
                     ->setRequired(true)
-                    ->setFormTypeOption('constraints', [new NotBlank()]),
+                    ->setFormTypeOption('constraints', [new NotBlank(), new Length(['max' => 60])]),
                 TextField::new('description', 'seo-block.description')
                     ->setMaxLength(141)
                     ->setRequired(true)
-                    ->setFormTypeOption('constraints', [new NotBlank()]),
+                    ->setFormTypeOption('constraints', [new NotBlank(), new Length(['max' => 141])]),
                 ChoiceField::new('metaRobots', 'seo-block.meta-robots')
                     ->allowMultipleChoices()
                     ->setChoices(array_combine($metaRobotsValues, $metaRobotsValues))
@@ -77,16 +77,11 @@ class SEOBlockCRUDController extends AbstractBlockCRUDController
                     ->setMaxLength(255)
                     ->hideOnIndex()
                     ->setRequired(true)
-                    ->setFormTypeOption('constraints', [new NotBlank()]),
+                    ->setFormTypeOption('constraints', [new NotBlank(), new Length(['max' => 255])]),
                 TextField::new('canonical', 'seo-block.canonical')
                     ->hideOnIndex()
                     ->setMaxLength(255)
-                    ->setFormTypeOption(
-                        'constraints',
-                        [
-                            new Length(['max' => 255])
-                        ]
-                    ),
+                    ->setFormTypeOption('constraints', [new Length(['max' => 255])]),
             ]
         );
     }

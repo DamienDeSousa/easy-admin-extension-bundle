@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace Dades\EasyAdminExtensionBundle\Controller\Admin;
 
-use App\Controller\TestBlockCRUDController;
 use Dades\CmsBundle\Entity\Block;
 use Dades\CmsBundle\Entity\Page;
 use Dades\CmsBundle\Entity\Site;
@@ -52,8 +51,7 @@ class Index extends AbstractDashboardController
     {
         $site = $this->siteReaderService->read();
         $dashboard = Dashboard::new()
-            ->setTitle($this->translator->trans('cms.name'))
-            ->disableUrlSignatures();
+            ->setTitle($this->translator->trans('cms.name'));
         if ($site) {
             $dashboard->setFaviconPath(sprintf('/%s%s', $this->iconDirectory, $site->getIcon()));
         }
